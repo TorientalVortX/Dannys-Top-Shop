@@ -257,7 +257,17 @@ footer p {
 }
 
 /* Responsive Design - Mobile Navigation Toggle */
+/* Hide scrollbar for mobile */
 @media (max-width: 768px) {
+    body {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;     /* Firefox */
+    }
+    
+    body::-webkit-scrollbar {
+        display: none;             /* Chrome, Safari and Opera */
+    }
+
     .menu-toggle {
         display: block;
     }
