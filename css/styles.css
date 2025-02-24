@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Roboto', 'Arial', sans-serif; /* Modern, clean font; add <link> to Google Fonts in HTML if using Roboto */
+    font-family: 'Roboto', 'Arial', sans-serif; /* Modern, clean font; ensure Google Fonts link is in HTML */
     line-height: 1.6;
     color: #333;
     background-color: #f5f5f5;
@@ -22,21 +22,39 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .logo {
     text-align: center;
+    flex: 1;
 }
 
 header h1 {
     font-size: 1.8rem;
-    font-weight: 700; /* Bolder for modern look */
+    font-weight: 700;
 }
 
 header p {
     font-size: 0.9rem;
     opacity: 0.8;
     font-weight: 400;
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+nav {
+    flex: 1;
 }
 
 nav ul {
@@ -58,17 +76,20 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li a.active {
     color: #d4a373; /* Warm beige accent */
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 /* Main Content */
 main {
-    margin-top: 110px; /* Reduced to accommodate smaller screens better */
+    margin-top: 100px; /* Increased to prevent overlap with fixed header on mobile */
     padding: 1.5rem;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    min-height: calc(100vh - 100px - 50px); /* Adjusted to match new margin-top */
 }
 
 h2 {
@@ -93,7 +114,7 @@ p {
     color: #fff;
     padding: 0.7rem 1.3rem;
     text-decoration: none;
-    border-radius: 8px; /* Rounded corners for modern look */
+    border-radius: 8px;
     font-weight: 600;
     font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -102,7 +123,7 @@ p {
 
 .cta-button:hover {
     background-color: #b5895a;
-    transform: translateY(-2px); /* Slight lift on hover for modern effect */
+    transform: translateY(-2px);
 }
 
 /* Services Section */
@@ -198,7 +219,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 0.8rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 footer p {
@@ -207,14 +228,41 @@ footer p {
     font-weight: 400;
 }
 
-nav ul li a.active {
-    color: #d4a373;
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-/* Responsive Design */
+/* Responsive Design - Mobile Navigation Toggle */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show hamburger menu on mobile */
+    }
+
+    nav {
+        display: none; /* Hide navigation by default on mobile */
+        position: fixed;
+        top: 60px; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: #2f2f2f;
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    nav.active {
+        display: block; /* Show navigation when active */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
     header {
         padding: 0.5rem;
     }
@@ -227,21 +275,8 @@ nav ul li a.active {
         font-size: 0.8rem;
     }
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 0.4rem 0;
-    }
-
-    nav ul li a {
-        font-size: 0.9rem;
-    }
-
     main {
-        margin-top: 90px; /* Reduced for mobile */
+        margin-top: 70px; /* Increased to prevent overlap on mobile */
         padding: 1rem;
     }
 
@@ -278,11 +313,17 @@ nav ul li a.active {
         font-size: 0.7rem;
     }
 
+    .menu-toggle {
+        font-size: 1.2rem;
+        padding: 0.3rem;
+    }
+
     nav ul li a {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     main {
+        margin-top: 60px; /* Further reduced but sufficient to show content */
         padding: 0.8rem;
     }
 
@@ -314,5 +355,16 @@ nav ul li a.active {
 
     footer p {
         font-size: 0.7rem;
+    }
+}
+
+/* Desktop Styles (Override mobile if needed) */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Hide hamburger menu on desktop */
+    }
+
+    nav {
+        display: block; /* Show navigation normally on desktop */
     }
 }
