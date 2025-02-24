@@ -23,7 +23,7 @@
             </div>
             <button class="menu-toggle" @click="toggleMenu" v-on:click="handleButtonClick">☰</button>
             <transition name="slide">
-                <nav v-if="isMenuOpen" :class="{ 'active': isMenuOpen }">
+                <nav :class="{ 'active': isMenuOpen }">
                     <ul>
                         <li v-for="page in pages" :key="page.name">
                             <a :href="page.url" :class="{ 'active': currentPage === page.name }" @click.prevent="setActivePage(page.name)" v-on:click="handleButtonClick">{{ page.name }}</a>
