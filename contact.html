@@ -16,16 +16,14 @@
             <h1>Danny's Top Shop</h1>
             <p>Countertops & Kitchen Solutions</p>
         </div>
-        <button class="menu-toggle" @click="toggleMenu" v-on:click="handleButtonClick">☰</button>
-        <transition name="slide">
-            <nav v-if="isMenuOpen" :class="{ 'active': isMenuOpen }">
-                <ul>
-                    <li v-for="page in pages" :key="page.name">
-                        <a :href="page.url" :class="{ 'active': currentPage === page.name }" @click.prevent="setActivePage(page.name)" v-on:click="handleButtonClick">{{ page.name }}</a>
-                    </li>
-                </ul>
-            </nav>
-        </transition>
+        <button class="menu-toggle" @click="toggleMenu">☰</button>
+        <nav :class="{ 'active': isMenuOpen }">
+            <ul>
+                <li v-for="page in pages" :key="page.name">
+                    <a :href="page.url" :class="{ 'active': currentPage === page.name }" @click.prevent="setActivePage(page.name)">{{ page.name }}</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Main Content -->
