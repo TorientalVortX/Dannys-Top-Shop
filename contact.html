@@ -16,7 +16,8 @@
             <h1>Danny's Top Shop</h1>
             <p>Countertops & Kitchen Solutions</p>
         </div>
-        <nav>
+        <button class="menu-toggle" @click="toggleMenu">☰</button>
+        <nav :class="{ 'active': isMenuOpen }">
             <ul>
                 <li v-for="page in pages" :key="page.name">
                     <a :href="page.url" :class="{ 'active': currentPage === page.name }" @click.prevent="setActivePage(page.name)">{{ page.name }}</a>
