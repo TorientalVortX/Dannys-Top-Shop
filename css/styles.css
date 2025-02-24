@@ -84,7 +84,7 @@ nav ul li a:hover, nav ul li a.active {
 
 /* Main Content */
 main {
-    margin-top: 100px; /* Increased to prevent overlap with fixed header on mobile */
+    margin-top: 100px; /* Default spacing for desktop/tablet */
     padding: 1.5rem;
     max-width: 1200px;
     margin-left: auto;
@@ -109,7 +109,9 @@ p {
 
 /* Call-to-Action Button */
 .cta-button {
-    display: inline-block;
+    display: flex; /* Use flexbox for perfect centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     background-color: #d4a373;
     color: #fff;
     padding: 0.7rem 1.3rem;
@@ -119,6 +121,9 @@ p {
     font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto; /* Center the button horizontally and add spacing */
+    width: fit-content; /* Ensure the button width fits the text */
+    height: 40px; /* Fixed height for consistent vertical centering */
 }
 
 .cta-button:hover {
@@ -276,7 +281,7 @@ footer p {
     }
 
     main {
-        margin-top: 70px; /* Increased to prevent overlap on mobile */
+        margin-top: 90px; /* Increased for more spacing on mobile */
         padding: 1rem;
     }
 
@@ -299,8 +304,10 @@ footer p {
     }
 
     .cta-button {
-        padding: 0.6rem 1.1rem;
+        padding: 0.8rem 1.4rem; /* Slightly more padding for better touch targets */
         font-size: 0.9rem;
+        margin: 1.5rem auto; /* Increased margin for more spacing on tablet/mobile */
+        height: 38px; /* Slightly reduced height for mobile */
     }
 }
 
@@ -323,7 +330,7 @@ footer p {
     }
 
     main {
-        margin-top: 60px; /* Further reduced but sufficient to show content */
+        margin-top: 80px; /* Further increased for more spacing on very small screens */
         padding: 0.8rem;
     }
 
@@ -349,10 +356,12 @@ footer p {
     }
 
     .cta-button {
-        padding: 0.5rem 0.9rem;
+        padding: 0.7rem 1.2rem; /* Adjusted padding for very small screens */
         font-size: 0.8rem;
+        margin: 1rem auto; /* Reduced margin but still provides spacing */
+        height: 36px; /* Further reduced height for very small screens */
     }
-
+    
     footer p {
         font-size: 0.7rem;
     }
