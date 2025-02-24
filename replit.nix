@@ -1,3 +1,6 @@
-{pkgs}: {
-  deps = [ ];
+
+{ pkgs }: {
+  deps = [
+    pkgs.python3
+  ];
 }
