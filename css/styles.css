@@ -259,13 +259,20 @@ footer p {
 /* Responsive Design - Mobile Navigation Toggle */
 /* Hide scrollbar for mobile */
 @media (max-width: 768px) {
-    body {
+    html, body {
+        overflow-x: hidden;
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;     /* Firefox */
     }
     
+    html::-webkit-scrollbar,
     body::-webkit-scrollbar {
+        width: 0;
         display: none;             /* Chrome, Safari and Opera */
+    }
+    
+    * {
+        -webkit-overflow-scrolling: touch;
     }
 
     .menu-toggle {
