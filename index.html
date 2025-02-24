@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Danny's Top Shop - Quality countertops and kitchen solutions in Festus, Missouri">
     <title>Danny's Top Shop | Countertops in Festus, MO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Header with Vue for dynamic navigation -->
+    <header id="app">
         <div class="logo">
             <h1>Danny's Top Shop</h1>
             <p>Countertops & Kitchen Solutions</p>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
+                <li v-for="page in pages" :key="page.name">
+                    <a :href="page.url" :class="{ 'active': currentPage === page.name }" @click.prevent="setActivePage(page.name)">{{ page.name }}</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -40,6 +39,9 @@
         <p>Festus, Missouri</p>
     </footer>
 
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <!-- Local JavaScript -->
     <script src="js/script.js"></script>
 </body>
 </html>
