@@ -1,53 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Danny's Top Shop in Festus, MO for countertop inquiries and quotes">
-    <title>Contact Us | Danny's Top Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- Header with Vue -->
-    <header id="app">
-        <div class="logo">
-            <h1>Danny's Top Shop</h1>
-            <p>Countertops & Kitchen Solutions</p>
-        </div>
-        <button class="menu-toggle" @click="toggleMenu" v-on:click="handleButtonClick">☰</button>
-        <transition name="slide">
-                <nav :class="{ 'active': isMenuOpen }">
-                <ul>
-                    <li v-for="page in pages" :key="page.name">
-                        <a :href="page.url" :class="{ 'active': currentPage === page.name }" @click.prevent="setActivePage(page.name)" v-on:click="handleButtonClick">{{ page.name }}</a>
-                    </li>
-                </ul>
-            </nav>
-        </transition>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Visit us at: 793 American Legion Dr, Festus, MO 63028</p>
-            <p>Call us: (636) 931-6606</p>
-            <p>Email: info@dannystopshop.com</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/pages/Dannys-Top-Shop/155218027850507/" target="_blank">Facebook</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Contact Danny's Top Shop in Festus, MO for countertop inquiries and quotes"
+        />
+        <title>Contact Us | Danny's Top Shop</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <!-- Header with Vue -->
+        <header id="app">
+            <div class="logo">
+                <h1>Danny's Top Shop</h1>
+                <p>Countertops & Kitchen Solutions</p>
             </div>
-        </section>
-    </main>
+            <button
+                class="menu-toggle"
+                @click="toggleMenu"
+                v-on:click="handleButtonClick"
+            >
+                ☰
+            </button>
+            <transition name="slide">
+                <nav :class="{ 'active': isMenuOpen }">
+                    <ul>
+                        <li v-for="page in pages" :key="page.name">
+                            <a
+                                :href="page.url"
+                                :class="{ 'active': currentPage === page.name }"
+                                @click.prevent="setActivePage(page.name)"
+                                v-on:click="handleButtonClick"
+                                >{{ page.name }}</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </transition>
+        </header>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Danny's Top Shop. All rights reserved.</p>
-        <p>Festus, Missouri</p>
-    </footer>
+        <!-- Main Content -->
+        <main>
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>Visit us at: 793 American Legion Dr, Festus, MO 63028</p>
+                <p>Call us: (636) 931-6606</p>
+                <p>Email: dannystopshop@yahoo.com</p>
+                <div class="social-links">
+                    <a
+                        href="https://www.facebook.com/pages/Dannys-Top-Shop/155218027850507/"
+                        target="_blank"
+                        >Facebook</a
+                    >
+                </div>
+            </section>
+        </main>
 
-    <!-- Vue.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
-    <script src="js/script.js"></script>
-</body>
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Danny's Top Shop. All rights reserved.</p>
+            <p>Festus, Missouri</p>
+        </footer>
+
+        <!-- Vue.js CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>
