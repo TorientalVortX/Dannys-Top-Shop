@@ -1,3 +1,4 @@
+
 /* Reset default styles */
 * {
     margin: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-    font-family: 'Roboto', 'Arial', sans-serif; /* Modern, clean font; ensure Google Fonts link is in HTML */
+    font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f5f5f5;
@@ -14,7 +15,7 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #2f2f2f; /* Dark gray for a stone-like feel */
+    background-color: #2f2f2f;
     color: white;
     padding: 1rem;
     position: fixed;
@@ -44,7 +45,7 @@ header p {
 }
 
 .menu-toggle {
-    display: none; /* Hidden by default on desktop */
+    display: none;
     background: none;
     border: none;
     color: #fff;
@@ -68,28 +69,36 @@ nav ul li {
     margin: 0 1rem;
 }
 
+/* Navigation Link Hover and Active State (Enhanced) */
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 nav ul li a:hover, nav ul li a.active {
-    color: #d4a373; /* Warm beige accent */
+    color: #d4a373;
     font-weight: 600;
     text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+/* Hamburger Menu Button Hover */
+.menu-toggle:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
 }
 
 /* Main Content */
 main {
-    margin-top: 100px; /* Default spacing for desktop/tablet */
+    margin-top: 100px;
     padding: 1.5rem;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    min-height: calc(100vh - 100px - 50px); /* Adjusted to match new margin-top */
+    min-height: calc(100vh - 100px - 50px);
 }
 
 h2 {
@@ -109,9 +118,9 @@ p {
 
 /* Call-to-Action Button */
 .cta-button {
-    display: flex; /* Use flexbox for perfect centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #d4a373;
     color: #fff;
     padding: 0.7rem 1.3rem;
@@ -121,14 +130,18 @@ p {
     font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 1rem auto; /* Center the button horizontally and add spacing */
-    width: fit-content; /* Ensure the button width fits the text */
-    height: 40px; /* Fixed height for consistent vertical centering */
+    margin: 1rem auto;
+    width: fit-content;
+    height: 40px;
 }
 
 .cta-button:hover {
     background-color: #b5895a;
     transform: translateY(-2px);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
 }
 
 /* Services Section */
@@ -233,16 +246,26 @@ footer p {
     font-weight: 400;
 }
 
+/* Transition Classes for Hamburger Menu */
+.slide-enter-active, .slide-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-enter, .slide-leave-to {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
 /* Responsive Design - Mobile Navigation Toggle */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block; /* Show hamburger menu on mobile */
+        display: block;
     }
 
     nav {
-        display: none; /* Hide navigation by default on mobile */
+        display: none;
         position: fixed;
-        top: 60px; /* Position below header */
+        top: 60px;
         left: 0;
         width: 100%;
         background-color: #2f2f2f;
@@ -251,7 +274,7 @@ footer p {
     }
 
     nav.active {
-        display: block; /* Show navigation when active */
+        display: block;
     }
 
     nav ul {
@@ -281,7 +304,7 @@ footer p {
     }
 
     main {
-        margin-top: 90px; /* Increased for more spacing on mobile */
+        margin-top: 90px;
         padding: 1rem;
     }
 
@@ -304,10 +327,14 @@ footer p {
     }
 
     .cta-button {
-        padding: 0.8rem 1.4rem; /* Slightly more padding for better touch targets */
+        padding: 0.8rem 1.4rem;
         font-size: 0.9rem;
-        margin: 1.5rem auto; /* Increased margin for more spacing on tablet/mobile */
-        height: 38px; /* Slightly reduced height for mobile */
+        margin: 1.5rem auto;
+        height: 38px;
+    }
+
+    .cta-button:active {
+        transform: scale(0.96);
     }
 }
 
@@ -330,7 +357,7 @@ footer p {
     }
 
     main {
-        margin-top: 80px; /* Further increased for more spacing on very small screens */
+        margin-top: 80px;
         padding: 0.8rem;
     }
 
@@ -356,10 +383,14 @@ footer p {
     }
 
     .cta-button {
-        padding: 0.7rem 1.2rem; /* Adjusted padding for very small screens */
+        padding: 0.7rem 1.2rem;
         font-size: 0.8rem;
-        margin: 1rem auto; /* Reduced margin but still provides spacing */
-        height: 36px; /* Further reduced height for very small screens */
+        margin: 1rem auto;
+        height: 36px;
+    }
+
+    .cta-button:active {
+        transform: scale(0.94);
     }
     
     footer p {
@@ -367,13 +398,13 @@ footer p {
     }
 }
 
-/* Desktop Styles (Override mobile if needed) */
+/* Desktop Styles */
 @media (min-width: 769px) {
     .menu-toggle {
-        display: none; /* Hide hamburger menu on desktop */
+        display: none;
     }
 
     nav {
-        display: block; /* Show navigation normally on desktop */
+        display: block;
     }
 }
